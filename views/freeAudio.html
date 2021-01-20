@@ -1,0 +1,581 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<script src="../js/jquery.min.js" type="text/javascript" charset="utf-8"></script>
+	</head>
+	<body>
+		<div class="Box">
+			<div class="jumpD" style="width: 100%;height: 100%;position: absolute;top: 0;left: 0;background-color: rgb(0 0 0 / 43%);z-index: 999; display: none;">
+				<div class="imgBox" style="width: 50%;margin: 0 auto;margin-top: 30vh;position: relative;display: flex;justify-content: center;align-items: center;">
+					<img src="../imgs/background.png" alt="" style="width: 100%;">
+					<div class="download"
+					 style="width: 300px;height: 100px;
+					 position: absolute;z-index: 999;
+					 background-color: #FF3857;
+					 color: white;font-size: 55px;
+					 border-radius:85px;text-align: center;line-height: 100px;
+					 transform: translateY(105px);
+					 box-shadow: 0px 15px #FFCACA;
+					
+					 ">
+						立即下载
+					</div>
+				</div>
+			</div>
+			<div id="Movie">
+				<audio src="../imgs/testMovie.mp4" 
+				style="width:100%;height: 100%;" 
+				id="video" 
+				autoplay="autoplay" 
+				<!-- muted="false" -->
+				 >
+					<!-- 视频尺寸未设置 -->
+				</audio>
+				<div class="control">
+					<div class="CimageBox">
+						<img src="../imgs/show.png" class="Vimg" >
+					</div>
+					<div class="MovieMove">
+						<p class="mTit">大头儿子</p>
+						<div class="MovieBox">
+						</div>
+						<div class="MovieCBox">
+							<div class="MovieC"></div>
+						</div>
+						<div class="atime">
+							00:00/00:00
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="choseBox">
+				<div class="choseTit">
+					<span class="active" value=0>简介</span>
+					<span class='' value=1>评论</span>
+				</div>
+				<div class="upup">
+					<div class="ulLi"><img src="../imgs/bofang.png" ><span>99</span></div>
+					<div class="ulLi"><img src="../imgs/dianzan.png" ><span>99</span></div>
+					<div class="ulLi"><img src="../imgs/zhuanfa.png" ><span>99</span></div>
+				</div>
+			</div>
+			<div id="jjBox">
+				<div class="jjBox">
+					<div class="jjLeft">
+						
+					</div>
+					<div class="jjRight">
+						<div class="rTopTit">
+						<span class="leftTit">专业解答-小李</span>
+						<span class="rightCare">+关注</span>
+						</div>
+						<p class="jjMain">专业解答性知识，提前预防危害，让更多人的人理解并正确的保护好自己</p>
+						
+					</div>
+				</div>
+				<div class="boxTwo">
+					<p class="movieName">青春期及性早熟</p>
+					<p><span class="zskp">知识科普</span><span class="time">2020-9-24  11:07</span></p>
+					<p class="jjMain">这个视频主要是解说青春期的萌芽及性早熟，让更多青春期的小孩理解男女生的区别，如何预防青春期的冲动。</p>
+				</div>
+			</div>
+			<div id="plBox">
+				<div class="userBox">
+					<div class="userLeft">
+						
+					</div>
+					<div class="userRight">
+						<p class="pLtit"><span class="plTit1">多喝开水</span ><span class="plTit2">88</span></p>
+					<p class="plTime">2020-9-24  11:19</p>
+					<p class="userSay">哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈</p>
+					</div>
+				</div>
+				
+			</div>
+			
+		</div>
+	</body>
+	<style type="text/css">
+		/* 视屏播放条 */
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		.control{
+			width: 95%;
+			height: 100%;
+			padding: 15px 0;
+			position: absolute;
+			bottom: 0;
+			left: 0;
+			right: 0;
+			top: 0;
+			margin: auto;
+			display: flex;
+			align-items: center;
+			justify-content: flex-start;
+		}
+		.control>.CimageBox{
+			width:200px;
+			height:200px;
+			display: flex;
+			flex-direction: column;
+			justify-content: center;
+		}
+		.CimageBox>img{
+			width: 100%;
+			display: block;
+		}
+		.MovieMove{
+			display: flex;
+			flex: 1;
+			padding:0 10px;
+			height: 100px;
+			flex-direction: column;
+			justify-content: center;
+			transform: translateY(45px);
+		}
+		.MovieMove>.mTit{
+			font-size: 60px;
+			margin: 0;
+			padding: 0;
+			position: absolute;
+			transform: translateY(-75px);
+		}
+		.MovieMove>.MovieBox{
+			width: 70%;
+			background-color: rgba(255, 255, 255, 1);
+			height: 5px;
+			position: absolute;
+			
+		}
+		.MovieMove>.atime{
+			position: absolute;
+			right: 0;
+			color: white;
+			font-size: 25px;
+		}
+		.MovieCBox{
+			width: 80%;
+			background-color: rgba(255, 87, 113, 1);
+			height: 5px;
+			z-index: 99;
+			position: relative;
+		}
+		.MovieC{
+			width: 25px;
+			height: 25px;
+			border-radius: 50%;
+			background-color: rgba(255, 87, 113, 1);
+			position: absolute;
+			top: -10px;
+			right: 0;
+		}
+		.quanping{
+			width: 80px;
+			height: 100px;
+			display: flex;
+			justify-content: center;
+			flex-direction: column;
+		}
+		.quanping>img{
+			width: 80px;
+			height: 80px;
+		}
+		/* 视屏播放条 */
+		.Box{
+			width: 100%;
+			overflow: hidden;
+		}
+		#Movie{
+			width: 90%;
+			margin:  35px auto;
+			height: 15vh;
+			overflow: hidden;
+			position: relative;
+background: linear-gradient(108deg, #F3C0C6, #FBDEE2);
+border-radius: 25px;
+pad
+		}
+		.choseBox{
+			display: flex;
+			width: 100%;
+			justify-content:space-between;
+			border-bottom: rgba(242, 242, 242, 1) solid 4px;
+			padding: 25px 5px;
+		}
+		.upup{
+			display: flex;
+			justify-content: flex-end;
+		}
+		.ulLi{
+			display: flex;
+			padding: 0 30px;
+		}
+		.ulLi>img{
+			width: 65px;
+		}
+		.ulLi>span{
+			font-size: 50px;
+		}
+		.choseTit>span{
+			font-size: 46px;
+			margin:  0 20px;
+		}
+		.choseTit>.active{
+			border-bottom: #ff1a57 solid 3px;
+			padding-bottom: 15px;
+		}
+		.jjBox{
+			display: flex;
+			justify-content: flex-start;
+			padding: 20px 10px;
+		}
+		.jjLeft{
+			width: 200px;
+			height: 200px;
+			background-color: #008B8B;
+			border-radius: 50%;
+		}
+		.jjRight{
+			flex: 1;
+			padding: 0 30px;
+			flex-direction: column;
+		}
+		.leftTit{
+			color:rgba(51, 51, 51, 1) ;
+			font-size:45px ;
+			font-weight: 700;
+		}
+		.rightCare{
+			font-size:30px ;
+			line-height: 65px;
+			background-color: rgba(255, 87, 113, 1);
+			color: white;
+			padding: 0 40px;
+			border-radius: 15px;
+		}
+		.rTopTit{
+			display: flex;
+			width: 100%;
+			justify-content: space-between;
+		}
+		.jjMain{
+			color:rgba(102, 102, 102, 1) ;
+			font-size: 32px;
+			line-height: 48px;
+		}
+		.movieName{
+			color:rgba(102, 102, 102, 1) ;
+			font-size: 42px;
+			margin: 0;
+			font-weight: 700;
+			letter-spacing: 2px;
+		}
+		.boxTwo{
+			padding: 0 40px;
+		}
+		.zskp{
+			color: rgba(255, 87, 113, 1);
+			background-color: rgba(242, 242, 242, 1);
+			font-size: 34px;
+			padding: 2px 20px;
+			border-radius: 15px;
+		}
+		.time{
+			color: rgba(102, 102, 102, 1);
+			font-size: 34px;
+			margin-left: 66px;
+		}
+		.userBox{
+			padding: 20px 30px;
+			border-bottom: #233333 solid 2px;
+			padding-bottom: 40px;
+			display: flex;
+			flex-direction: row;
+		}
+		.userLeft{
+			width: 150px;
+			height: 150px;
+			background-color: #008B8B;
+			border-radius: 50%;
+		}
+		.userRight{
+			flex:1;
+			padding-left: 35px;
+		}
+		.pLtit{
+			display: flex;
+			height: 105px;
+			justify-content: space-between;
+		}
+		.plTit1{
+			font-size: 50px;
+			font-weight: 500;
+			color: rgba(51, 51, 51, 1);
+		}
+		.plTit2{
+			font-size: 35px;
+			color: rgba(153, 153, 153, 1);
+			transform: translateY(-25px);
+			
+		}
+		.plTit2::before{
+			content: url(./imgs/up.png);
+			display: inline-block;
+			transform: translateY(15px);
+		}
+		.plTime{
+			font-size: 36px;
+			transform: translateY(-40px);
+		}
+		.userSay{
+			font-size: 40px;
+			transform: translateY(-35px);
+			display: -webkit-box;
+			    -webkit-line-clamp:3;
+			    overflow: hidden;
+			    text-overflow: ellipsis;
+			    -webkit-box-orient: vertical;
+		}
+	</style>
+	<script type="text/javascript">
+		$(function(){
+	// 评论回显开始
+	// var plData=获取评论数据的内容集合.revers().slice(0,5)//包含用户名，头像，时间，评论内容，点赞量
+	//$("#plBox").children().remove()
+	// plData.forEach(function(item,index){
+	// 	$("#plBox").append(`
+	// 	<div class="userBox">
+	// 		<div class="userLeft">
+	// 			<img src=${item.图片路径字段名} style='width:100%,border-radius:50%,'></img>
+	// 		</div>
+	// 		<div class="userRight">
+	// 			<p class="pLtit"><span class="plTit1">${item.用户ID字段名}</span ><span class="plTit2">88</span></p>
+	// 		<p class="plTime">${item.时间字段名}</p>
+	// 		<p class="userSay">${item.评论内容字段名}</p>
+	// 		</div>
+	// 	</div>
+	// 	`)
+	// })
+	// 评论回显结束
+	
+	// 简介回显开始
+	// var jjData=获取评论数据的内容集合.revers().slice(0,5)//包含用户名，头像，时间，评论内容，点赞量
+	//$("#jjBox").children().remove()
+	// jjData.forEach((item,index){
+		// $("#jjBox").append(`
+		// <div class="jjBox">
+		// 	<div class="jjLeft">
+				<!-- <img src=${item.图片路径字段名} style='width:100%,border-radius:50%,'></img> -->
+		// 	</div>
+		// 	<div class="jjRight">
+		// 		<div class="rTopTit">
+		// 		<span class="leftTit">${item.简介作者字段名}</span>
+		// 		<span class="rightCare">+关注</span>
+		// 		</div>
+		// 		<p class="jjMain">${item.简介内容字段名}</p>
+				
+		// 	</div>
+		// </div>
+		// <div class="boxTwo">
+		// 	<p class="movieName">${item.简介标题字段名}</p>
+		// 	<p><span class="zskp">${item.分类标签字段名}</span><span class="time">${item.时间字段名}</span></p>
+		<!-- <p class="jjMain">${item.简介内容字段名}</p> -->
+		// </div>
+		// `)
+	// })
+	// 简介回显结束
+	
+	// 视频设置开始
+	// var movieData=???获取评论数据的内容集合,包含视频路径，点赞量，播放量，收藏量
+	//$("#Movie").children().remove()
+	// movieData.forEach(
+	// function(item,index){
+		// $("#Movie").append(`
+		// <video src=${item.视频路径字段名} 
+		// style="width: 400%;height: 100%;transform: translateX(-50%);" id="video"//视频尺寸未设置
+		//  autoplay="autoplay"
+		//   muted="muted"  >
+		// </video>
+		// <div class="control">
+		// 	<div class="CimageBox">
+		// 		<img src="./imgs/stop.png" class="Vimg" >
+		// 	</div>
+		// 	<div class="MovieMove">
+		// 		<div class="MovieBox">
+		// 		</div>
+		// 		<div class="MovieCBox">
+		// 			<div class="MovieC"></div>
+		// 		</div>
+		// 	</div>
+		// 	<div class="quanping">
+		// 		<img src="./imgs/quanping.png" >
+		// 	</div>
+		// </div>
+		// `)
+	// }
+	// )
+	
+	// 视频设置结束
+			var audio=document.getElementById('video')
+			var ZT=document.getElementsByClassName('CimageBox')[0]
+			var Vimg=document.getElementsByClassName('Vimg')[0]
+			var MovieBox=document.getElementsByClassName('MovieBox')[0]//进度条盒子
+			var MovieCBox=document.getElementsByClassName('MovieCBox')[0]
+			var k=0//视频播放状态
+			var c=0//评论简介选择状态
+			$('#plBox').css('display','none')
+			$('.choseTit span').click(function(){
+				// console.log($(this).attr('value'))
+				c=Number($(this).attr('value')) 
+				console.log(c)
+				$('.choseTit span').attr('class','')
+				$(this).attr('class','active')
+				if(c){
+					$('#jjBox').css('display','none')
+					$('#plBox').css('display','block')
+				}else{
+					$('#jjBox').css('display','block')
+					$('#plBox').css('display','none')
+				}
+			})
+			// 播放
+			function playVid(){
+			  audio.play();
+			  audio.defaultMuted=false
+			  }
+			  console.log("%O",audio)
+			// 暂停
+			function paused(){
+				audio.pause();
+			}
+			// playVid()
+			ZT.onclick=function begin(){
+				k=!k
+				if(k){
+					playVid()
+					Vimg.src='../imgs/stop.png'
+					
+				}else{
+					paused(true)
+					Vimg.src='../imgs/show.png'
+				}
+				
+			}
+			setTimeout(function(){
+				audio.muted = false;
+			},1000)
+			// audio.onclick=function begin(){
+				
+			// 	k=!k
+			// 	if(k){
+			// 		playVid()
+			// 		Vimg.src='../imgs/stop.png'
+					
+			// 	}else{
+			// 		paused(true)
+			// 		Vimg.src='../imgs/show.png'
+			// 	}
+				
+			// }
+			setInterval(function(i){
+				// console.log(video.currentTime)
+				// console.log(video.duration)
+				let mTime=(audio.currentTime/video.duration*window.getComputedStyle(MovieBox).width.slice(0,-2))+'px'
+				// console.log(mTime)
+				MovieCBox.style.width=mTime
+			},1000)
+			
+			let allTime=audio.duration
+			let alltimeTwo=null
+			 function transTime(allTime) {
+			       var duration = parseInt(allTime);
+			       var minute = parseInt(duration/60);
+			       var sec = duration%60+'';
+			       var isM0 = ':';
+			       if(minute == 0){
+			           minute = '00';
+			       }else if(minute < 10 ){
+			           minute = '0'+minute;
+			       }
+			       if(sec.length == 1){
+			           sec = '0'+sec;
+			       }
+				   // console.log(minute+isM0+sec)
+			       return minute+isM0+sec
+				   
+			   }
+			   transTime(audio.currentTime)
+			$('.ulLi,.rightCare').click(()=>{
+				$(".jumpD").css('display','block')
+			})
+			setInterval((i)=>{
+			let k=transTime(audio.currentTime)+"/"+transTime(audio.duration)
+			$('.atime').html(k)
+			},1000)
+			
+			
+			function isAndroidOrIOS(){
+			        var u = navigator.userAgent;
+			        var isAndroid = u.indexOf('Android') > -1 || u.indexOf('Adr') > -1; //android终端
+			        var isiOS = !!u.match(/\(i[^;]+;( U;)? CPU.+Mac OS X/); //ios终端
+			        if (isAndroid) {
+			            return "android"
+			        }
+			        if (isiOS) {
+			            return "ios"
+			        }
+			        return false
+			    }
+			// 判断是否在微信浏览器
+				 function isWeixin () {
+				  var ua = window.navigator.userAgent.toLowerCase();
+				  if(ua.match(/MicroMessenger/i) == 'micromessenger' || ua.match(/_SQ_/i) == '_sq_'){
+					  // console.log('在微信')
+				      return true;
+				  } else{
+					  // console.log('不在微信')
+				      return false;
+				  }
+				}
+			// 点击选项
+			function download(){
+				if(isAndroidOrIOS()=='android'){
+					if(isWeixin()){
+						alert('请打开浏览器下载')
+					}else{
+						// window.location.href="https://www.baidu.com/";安卓跳转地址
+						console.log('安卓不在微信跳转地址')
+					}
+				}else{
+					if(isWeixin()){
+						// window.location.href="https://www.baidu.com/";苹果跳转地址
+					}else{
+						// window.location.href="https://www.baidu.com/";苹果跳转地址
+						console.log('苹果不在微信跳转地址')
+					}
+				}
+			}
+			
+			
+			$(".download").click(()=>{
+				download()
+			})
+			
+			function isAndroidUnWx(){
+				console.log(isAndroidOrIOS()=='android',!isWeixin())
+				if(isAndroidOrIOS()=='android'&&!isWeixin()){
+					console.log(1)
+					// window.location.href="https://www.baidu.com/";//安卓跳转地址
+				}
+			}
+			isAndroidUnWx()
+			
+
+		})
+		
+	</script>
+</html>

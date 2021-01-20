@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<div class="detailBox">
+			<p class="tit"></p>
+			<p class="main"> </p>
+		</div>
+	</body>
+	<script type="text/javascript">
+		var detailBox=document.getElementsByClassName('detailBox')[0];
+		var tit=document.getElementsByClassName('tit')[0];
+		var main=document.getElementsByClassName('main')[0];
+		var activeID=window.location.href.split('?')[1]
+		console.log(activeID)
+			tit.innerHTML='怎么进入聊天界面聊天呢？'
+			main.innerHTML='首先打开第一步，一个头像，点击进入，关注，可以发送一条信息，互相关注可以发送多条'
+			
+		// fetch('请求路径+activeID').then(e=>e.json()).then(res=>{
+		// 	tit.innerHTML=res.data.标题字段名
+		// 	main.innerHTML=res.data.内容字段名
+		// })
+		
+	</script>
+	<style type="text/css">
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		.detailBox{
+			padding: 0 30px;
+			padding-top: 30px;
+			
+		}
+		.tit{
+			
+			font-size: 36px;
+			font-family: PingFang SC;
+			font-weight: 500;
+			color: #333333;
+			line-height: 60px;
+		}
+		.main{
+			margin-top: 15px;
+			
+			font-size: 32px;
+			font-family: PingFang SC;
+			font-weight: 500;
+			color: #666666;
+			line-height: 42px;
+		}
+	</style>
+</html>
